@@ -1,0 +1,566 @@
+/* Change these tokens to give the entire sample a different personality. */
+:root {
+    color-scheme: dark;
+    --bg: #101223;
+    --surface: #1a1d34;
+    --ink: #f5f4ff;
+    --muted: #b6b8d1;
+    --mint: #a9efd6;
+    --lavender: #c6b5ff;
+    --line: #34384f;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 0;
+    color: var(--ink);
+    background: radial-gradient(ellipse at 90% 0%, #302a4e 0%, transparent 48%), var(--bg);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--mint);
+    outline-offset: 5px;
+}
+
+.studio {
+    color: var(--ink);
+    width: min(100%, 1100px);
+    padding: 32px 40px;
+    margin: 0 auto;
+}
+
+.topbar,
+.brand,
+.card-heading,
+.progress-heading,
+.session-total,
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.topbar {
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    justify-content: flex-start;
+    gap: 10px;
+    color: var(--ink);
+    font-size: 18px;
+    font-weight: 650;
+    text-decoration: none;
+    letter-spacing: -.6px;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    background: var(--lavender);
+    color: var(--bg);
+    font: italic 700 27px Georgia, serif;
+}
+
+.brand-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--mint);
+    border-radius: 50%;
+}
+
+.sample-label {
+    color: var(--muted);
+    letter-spacing: 1.7px;
+    font-size: 10px;
+}
+
+.intro {
+    padding: 36px 0 28px;
+}
+
+.eyebrow {
+    color: var(--mint);
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 650;
+    margin: 0 0 12px;
+}
+
+.eyebrow span {
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+/* Explicit heading colors prevent host preview/theme styles from making them dark. */
+.studio .intro h1 {
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+    font-size: clamp(38px, 6vw, 64px);
+    letter-spacing: -2.5px;
+    line-height: 1.04;
+    margin: 0;
+    font-weight: 600;
+}
+
+h1 br {
+    display: none;
+}
+
+/* A parent's text-fill color is inherited, so override it for the accent. */
+.studio .intro h1 em {
+    font-family: Georgia, serif;
+    color: var(--lavender);
+    -webkit-text-fill-color: var(--lavender);
+    font-weight: 400;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 12px 0 0;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 1.12fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.timer-card,
+.plan-card {
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 24px;
+    background: var(--surface);
+}
+
+.timer-card {
+    background: radial-gradient(ellipse at 50% 0%, #292842, transparent 70%), var(--surface);
+}
+
+/* The two card headings must remain legible in both light and dark hosts. */
+.studio .card-heading h2 {
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.state-pill {
+    color: var(--mint);
+    background: #253c3d;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 6px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.timer-ring {
+    --sweep: 360deg;
+    width: min(100%, 252px);
+    aspect-ratio: 1;
+    padding: 7px;
+    border-radius: 50%;
+    margin: 26px auto 22px;
+    background: conic-gradient(from -90deg, var(--mint) var(--sweep), #393d55 0);
+    box-shadow: 0 0 45px #a9efd60a;
+}
+
+.timer-face {
+    height: 100%;
+    border: 8px solid var(--surface);
+    border-radius: 50%;
+    background: #15182c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-star {
+    color: var(--lavender);
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 14px;
+}
+
+.timer-caption {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+    color: var(--muted);
+}
+
+/* Set the digits directly instead of relying on inherited preview/theme colors. */
+#clock {
+    color: var(--ink, #f5f4ff);
+    -webkit-text-fill-color: currentColor;
+    font-size: 54px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -2.5px;
+    line-height: 1.4;
+}
+
+.timer-note {
+    color: var(--mint);
+    font-size: 11px;
+}
+
+.presets {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    max-width: 280px;
+    margin: 0 auto 18px;
+}
+
+.presets button {
+    min-height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.presets button[aria-pressed="true"] {
+    color: var(--lavender);
+    background: #302b4d;
+    border-color: #756690;
+}
+
+.timer-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+}
+
+.timer-actions button {
+    min-height: 48px;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: var(--lavender);
+    border: 1px solid var(--lavender);
+    color: #18162b;
+}
+
+.reset {
+    background: #24273f;
+    color: var(--ink);
+    border: 1px solid var(--line);
+}
+
+.session-status {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--muted);
+    text-align: center;
+    min-height: 33px;
+    margin: 14px 0 0;
+}
+
+.plan-icon {
+    color: var(--lavender);
+    font-size: 24px;
+}
+
+.plan-description {
+    color: var(--muted);
+    font-size: 12px;
+    margin: 10px 0 24px;
+}
+
+.focus-tasks {
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+}
+
+.focus-tasks li {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+}
+
+.focus-tasks li:first-child {
+    padding-top: 0;
+}
+
+.focus-tasks label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    min-height: 44px;
+}
+
+.focus-tasks input {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--mint);
+}
+
+.focus-tasks label>span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.focus-tasks strong {
+    display: block;
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.focus-tasks small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 3px;
+}
+
+.focus-tasks input:checked+span strong {
+    color: var(--muted);
+    -webkit-text-fill-color: var(--muted);
+    text-decoration: line-through;
+}
+
+.progress-heading {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.progress-heading strong {
+    color: var(--mint);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+}
+
+progress {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 6px;
+    border: 0;
+    border-radius: 10px;
+    background: #34384f;
+    margin: 12px 0 26px;
+    accent-color: var(--mint);
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background: #34384f;
+}
+
+progress::-webkit-progress-value {
+    background: var(--mint);
+    border-radius: 10px;
+}
+
+progress::-moz-progress-bar {
+    background: var(--mint);
+    border-radius: 10px;
+}
+
+.session-total {
+    border-radius: 14px;
+    padding: 16px;
+    background: #23273e;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.session-total>strong {
+    font-size: 22px;
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.spark {
+    color: var(--lavender);
+    font-size: 20px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.demo-note {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+    margin: 16px 0 0;
+}
+
+footer {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+footer strong {
+    color: var(--lavender);
+    font-weight: 500;
+}
+
+.noscript {
+    color: var(--mint);
+}
+
+@media (max-width: 680px) {
+    .studio {
+        padding: 20px;
+    }
+
+    .topbar {
+        padding-bottom: 16px;
+    }
+
+    .sample-label {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .brand {
+        font-size: 16px;
+    }
+
+    .intro {
+        padding: 24px 0 20px;
+    }
+
+    h1 br {
+        display: block;
+    }
+
+    .studio .intro h1 {
+        font-size: 44px;
+        letter-spacing: -1.5px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+    }
+
+    .workspace {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .timer-card,
+    .plan-card {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .timer-ring {
+        width: 210px;
+        margin: 18px auto;
+        padding: 6px;
+    }
+
+    #clock {
+        font-size: 46px;
+    }
+
+    .orbit-star {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .timer-caption {
+        font-size: 7px;
+    }
+
+    .timer-face {
+        border-width: 6px;
+    }
+
+    .presets {
+        margin-bottom: 14px;
+    }
+
+    .session-status {
+        min-height: 0;
+    }
+
+    .plan-description {
+        margin: 5px 0 16px;
+    }
+
+    .focus-tasks li {
+        padding: 12px 0;
+    }
+
+    .focus-tasks {
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 350px) {
+    .studio {
+        padding: 16px;
+    }
+
+    .brand-dot {
+        display: none;
+    }
+
+    .sample-label {
+        max-width: 62px;
+        line-height: 1.7;
+    }
+
+    .timer-actions button {
+        padding: 10px 12px;
+    }
+}

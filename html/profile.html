@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My learning garden</title>
+  <style>
+
+:root { color-scheme: light; font: 18px/1.6 system-ui, sans-serif; color: #183333; background: #f1f5ef; }
+* { box-sizing: border-box; }
+body { max-width: 800px; margin: auto; padding: 24px; }
+header, main, footer { margin-bottom: 24px; }
+section, article { background: white; border: 1px solid #cad8cb; border-radius: 16px; padding: 24px; margin: 20px 0; }
+h1, h2 { line-height: 1.2; }
+h1 { font-size: clamp(2rem, 7vw, 3rem); }
+a { color: #176341; }
+button, input, select { font: inherit; padding: 8px 12px; max-width: 100%; }
+button { color: white; background: #176341; border: 0; border-radius: 8px; cursor: pointer; }
+button:disabled { opacity: .55; cursor: default; }
+:focus-visible { outline: 3px solid #b75600; outline-offset: 4px; }
+label { display: block; margin-top: 12px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 8px; border-bottom: 1px solid #cad8cb; text-align: left; }
+img { max-width: 100%; height: auto; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; }
+.done { text-decoration: line-through; color: #52615b; }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Ginupy Code / HTML / 01</p>
+  <h1>My learning garden</h1>
+  <p>A tiny profile for a curious beginner. Edit it to tell your own story.</p>
+  <nav aria-label="Page sections"><a href="#about">About</a> · <a href="#goals">Goals</a></nav>
+</header>
+<main>
+  <figure>
+    <img src="assets/plant.svg" width="640" height="240" alt="A green plant growing in a terracotta pot">
+    <figcaption>Small steps can grow into useful skills.</figcaption>
+  </figure>
+  <section id="about">
+    <h2>Hello, I am Alex</h2>
+    <p>I enjoy <strong>making things</strong>, solving puzzles, and sharing what I learn.</p>
+    <p>This page uses HTML and CSS, with no JavaScript.</p>
+  </section>
+  <section id="goals">
+    <h2>This week's goals</h2>
+    <ul><li>Build a profile page</li><li>Change its colors</li><li>Explain one new tag to a friend</li></ul>
+    <details><summary>What is semantic HTML?</summary><p>Tags such as header, main, and section describe the role of the content.</p></details>
+  </section>
+</main>
+<footer><a href="recipe.html">Next: a recipe page</a> · <a href="https://ginupy.com/products/ginupy-code/">About Ginupy Code</a></footer>
+
+</body>
+</html>

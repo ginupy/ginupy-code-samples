@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build a breakfast bowl</title>
+  <style>
+
+:root { color-scheme: light; font: 18px/1.6 system-ui, sans-serif; color: #183333; background: #f1f5ef; }
+* { box-sizing: border-box; }
+body { max-width: 800px; margin: auto; padding: 24px; }
+header, main, footer { margin-bottom: 24px; }
+section, article { background: white; border: 1px solid #cad8cb; border-radius: 16px; padding: 24px; margin: 20px 0; }
+h1, h2 { line-height: 1.2; }
+h1 { font-size: clamp(2rem, 7vw, 3rem); }
+a { color: #176341; }
+button, input, select { font: inherit; padding: 8px 12px; max-width: 100%; }
+button { color: white; background: #176341; border: 0; border-radius: 8px; cursor: pointer; }
+button:disabled { opacity: .55; cursor: default; }
+:focus-visible { outline: 3px solid #b75600; outline-offset: 4px; }
+label { display: block; margin-top: 12px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 8px; border-bottom: 1px solid #cad8cb; text-align: left; }
+img { max-width: 100%; height: auto; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; }
+.done { text-decoration: line-through; color: #52615b; }
+  </style>
+</head>
+<body>
+
+<header><p class="eyebrow">Ginupy Code / HTML / 02</p><h1>Build a breakfast bowl</h1><p>A recipe you can personalize in five minutes.</p></header>
+<main>
+  <article>
+    <h2>Fruit &amp; yogurt bowl</h2>
+    <table><caption>Ingredients for one bowl</caption><thead><tr><th scope="col">Ingredient</th><th scope="col">Amount</th></tr></thead>
+      <tbody><tr><th scope="row">Yogurt</th><td>150 g</td></tr><tr><th scope="row">Fruit</th><td>1 cup</td></tr><tr><th scope="row">Oats</th><td>2 tablespoons</td></tr></tbody>
+    </table>
+    <h3>Method</h3><ol><li>Spoon yogurt into a bowl.</li><li>Add chopped fruit.</li><li>Sprinkle oats on top and enjoy.</li></ol>
+  </article>
+  <section>
+    <h2>Plan your variation</h2>
+    <p id="form-note">Practice form controls below. This form does not send or save data.</p>
+    <form aria-describedby="form-note">
+      <label for="bowl-name">Bowl name</label><input id="bowl-name" name="bowl-name" maxlength="40" placeholder="Sunny morning">
+      <label for="fruit">Favorite fruit</label><select id="fruit" name="fruit"><option>Banana</option><option>Apple</option><option>Berries</option></select>
+      <label><input type="checkbox" name="crunch"> Add extra crunch</label>
+      <p><button type="submit" disabled>Preview only</button> <button type="reset">Reset choices</button></p>
+    </form>
+  </section>
+</main>
+<footer><a href="profile.html">Back to the profile</a></footer>
+
+</body>
+</html>

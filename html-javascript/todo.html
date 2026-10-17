@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tiny task garden</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font: 18px/1.6 system-ui, sans-serif;
+            color: #183333;
+            background: #f1f5ef;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 800px;
+            margin: auto;
+            padding: 24px;
+        }
+
+        header,
+        main,
+        footer {
+            margin-bottom: 24px;
+        }
+
+        section,
+        article {
+            background: white;
+            border: 1px solid #cad8cb;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+
+        h1,
+        h2 {
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 7vw, 3rem);
+        }
+
+        a {
+            color: #176341;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+            padding: 8px 12px;
+            max-width: 100%;
+        }
+
+        button {
+            color: white;
+            background: #176341;
+            border: 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: .55;
+            cursor: default;
+        }
+
+        :focus-visible {
+            outline: 3px solid #b75600;
+            outline-offset: 4px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #cad8cb;
+            text-align: left;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: .8rem;
+        }
+
+        .done {
+            text-decoration: line-through;
+            color: #52615b;
+        }
+
+        /* Give text fields and buttons explicit tracks instead of relying on inline wrapping. */
+        form>label {
+            margin: 0 0 8px;
+            font-weight: 600;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 12px;
+            align-items: stretch;
+        }
+
+        .form-row>input {
+            width: 100%;
+            min-width: 0;
+            min-height: 48px;
+            border: 1px solid #8ca598;
+            border-radius: 8px;
+            background: white;
+            color: #183333;
+        }
+
+        .form-row>button {
+            min-height: 48px;
+            white-space: nowrap;
+        }
+
+        #history,
+        #message,
+        #summary {
+            overflow-wrap: anywhere;
+        }
+
+        #tasks {
+            list-style: none;
+            padding: 0;
+        }
+
+        #tasks>li {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #cad8cb;
+        }
+
+        #tasks label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+            margin: 0;
+        }
+
+        #tasks input[type="checkbox"] {
+            flex: 0 0 22px;
+            width: 22px;
+            height: 22px;
+            padding: 0;
+            margin: 0;
+            accent-color: #176341;
+        }
+
+        #tasks label span {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        #tasks button {
+            min-height: 44px;
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 16px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .form-row>button {
+                width: 100%;
+            }
+        }
+    </style>
+    <script src="todo.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <p class="eyebrow">Ginupy Code / JavaScript / 02</p>
+        <h1>Tiny task garden</h1>
+        <p>Add a task. Mark it done. Make room for the next idea.</p>
+    </header>
+    <main>
+        <section>
+            <h2>Today's tasks</h2>
+            <form id="task-form">
+                <label for="task">New task</label>
+                <div class="form-row">
+                    <input id="task" maxlength="80" required>
+                    <button type="submit">Add task</button>
+                </div>
+            </form>
+            <p id="summary" role="status">0 of 0 completed</p>
+            <ul id="tasks"></ul>
+            <p>Tasks stay in memory only. Reloading the page clears them.</p>
+        </section>
+    </main>
+    <footer>Try adding a button that clears all completed tasks.</footer>
+
+</body>
+
+</html>
